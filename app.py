@@ -47,6 +47,11 @@ def send_files(path) -> Response:
 
 ##### API #####
 
+@app.route('/hello', methods=['GET'])
+def hello() -> Tuple[str, int]:
+    log('GET /hello')
+    return "Hello!", HTTP_OK
+
 @app.route('/api/recipes', methods=['POST'])
 def search_recipes() -> Tuple[str, int]:
     log('GET /api/recipes with data:', request.data)
