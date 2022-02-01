@@ -14,10 +14,3 @@ def log(msg: str, data: any = '') -> None:
     print(message)
 
 
-def format_date_user(date: str) -> Optional[str]:
-    """
-    Formats a date string to format 01.03.2020.
-    Mainly used for sending the recipe or other communication.
-    """
-    d = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-    return d.strftime('%d.%m.%Y')

@@ -65,6 +65,7 @@ class Persistence:
 
         # limit to 50 results
         return results[:50]
+
     #
     # def rate_standard(self, recipe_ingredients: List[str],
     #     ingredients: List[str]) -> float:

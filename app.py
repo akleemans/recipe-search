@@ -9,24 +9,11 @@ from persistence import Persistence
 from util import log
 
 HTTP_OK = 200
-HTTP_BAD_REQUEST = 400
-HTTP_UNAUTHORIZED = 401
-HTTP_NOT_FOUND = 404
-HTTP_DUPLICATE = 409
-HTTP_INTERNAL_ERROR = 500
 
 app = Flask(__name__)
 app.config.update(DEBUG=True)
 cors = CORS(app)
 db = Persistence('recipes.db')
-
-
-def to_json(obj) -> str:
-    """ Dump a model object or list to json """
-    if isinstance(obj, list):
-        return json.dumps([e.to_dict() for e in obj])
-    else:
-        return json.dumps(obj.to_dict())
 
 
 ##### FRONTEND #####
