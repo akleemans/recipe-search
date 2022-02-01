@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install npm packages
+        run: npm ci
+        working-directory: ./frontend
+      - name: Lint
+        run: npm run lint
+        working-directory: ./frontend
+      - name: Run tests
+        run: npm run test:ci
+        working-directory: ./frontend
+      - name: Build
+        run: npm run build
+        working-directory: ./frontend
+
+  backend:
+    needs: frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install python dependencies
+        run: pip3 install -r requirements.txt
+      - name: Run backend unit tests
+        run: python3 -m unittest discover
+
+  e2e_tests:
+    needs: backend
+    runs-on: ubuntu-latest
+    # Run E2E test on PRs and main
+    if: github.event_name == 'pull_request' || contains(github.ref, 'main')
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install npm packages for E2E tests
+        run: npm ci
+        working-directory: ./frontend
+      - name: Run build
+        run: npm run build
+        working-directory: ./frontend
+      - name: Log Chrome WebDriver
+        run: echo $CHROMEWEBDRIVER
+      - name: Install python dependencies
+        run: pip3 install -r requirements.txt
+      - name: Run E2E tests
+        run: npm run cypress:ci
+        working-directory: ./frontend
+
