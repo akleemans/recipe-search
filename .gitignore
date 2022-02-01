@@ -99,3 +99,4 @@ dmypy.json
 
 # Don't commit data
 *.db
+/app.log

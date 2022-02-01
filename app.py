@@ -31,7 +31,6 @@ def to_json(obj) -> str:
 
 ##### FRONTEND #####
 
-
 @app.route('/', methods=['GET'])
 def index() -> Response:
     return app.send_static_file('index.html')
@@ -52,12 +51,14 @@ def hello() -> Tuple[str, int]:
     log('GET /hello')
     return "Hello!", HTTP_OK
 
+
 @app.route('/api/recipes', methods=['POST'])
 def search_recipes() -> Tuple[str, int]:
     log('GET /api/recipes with data:', request.data)
     data = json.loads(request.data)
     ingredients: List[str] = data['ingredients']
-    return json.dumps(db.search_recipes(ingredients)), HTTP_OK
+    search_mode: str = data['searchMode']
+    return json.dumps(db.search_recipes(ingredients, search_mode)), HTTP_OK
 
 
 if __name__ == '__main__':
