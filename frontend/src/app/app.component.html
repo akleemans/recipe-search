@@ -1,0 +1,71 @@
+<header>
+  <h1>rezept-ideen.ch</h1>
+  <p>
+    Die intelligente Rezept-Suche
+  </p>
+</header>
+<div class="container">
+  <div class="search-box">
+    <div class="search-line">
+      <mat-form-field class="chip-list" appearance="fill">
+        <mat-label>Vorhandene Zutaten eingeben</mat-label>
+        <mat-chip-list #chipList>
+          <mat-chip *ngFor="let ingredient of ingredients" [selectable]="true"
+                    [removable]="true" (removed)="remove(ingredient)">
+            {{ingredient.name}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input placeholder="Zutat hinzufügen..."
+                 [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="true"
+                 (matChipInputTokenEnd)="add($event)">
+          <button *ngIf="ingredients" matSuffix mat-icon-button aria-label="Clear"
+                  (click)="ingredients=[]">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-chip-list>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="getRecipes()">
+        Suchen
+      </button>
+    </div>
+
+    <!--
+    <div class="search-line">
+      <mat-checkbox class="example-margin">Strikte Reihenfolge</mat-checkbox>
+    </div>
+    -->
+    <!--
+    <div class="search-line">
+      <mat-form-field appearance="fill">
+        <mat-label>Suchmodus</mat-label>
+        <mat-select [(ngModel)]="searchMode" name="searchMode">
+          <mat-option [value]="searchModeEnum.standard">
+            Standard
+          </mat-option>
+          <mat-option [value]="searchModeEnum.use_most">
+            Möglichst viele Zutaten aus Liste verwenden
+          </mat-option>
+          <mat-option [value]="searchModeEnum.have_most">
+            Möglichst alles aus Rezept schon vorhanden
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="getRecipes()">
+        Suchen
+      </button>
+    </div>
+    -->
+  </div>
+
+  <mat-spinner *ngIf="isLoading" style="margin: auto;"></mat-spinner>
+  <div class="recipe-container" *ngIf="!isLoading">
+    <app-recipe *ngFor="let recipe of recipes;" [recipe]="recipe" [ingredients]="ingredients">
+    </app-recipe>
+  </div>
+</div>

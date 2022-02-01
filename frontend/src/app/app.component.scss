@@ -1,0 +1,47 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+}
+
+.container {
+  margin: 20px;
+  .search-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .search-line {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+
+      > .mat-form-field, > .button {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .recipe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.chip-list {
+  width: 600px;
+  padding: 0;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.example-radio-button {
+  margin: 5px;
+}

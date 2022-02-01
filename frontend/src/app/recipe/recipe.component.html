@@ -1,0 +1,14 @@
+<div class="recipe" (click)="openRecipe()">
+  <div class="image-centered">
+    <img [src]="recipe.image" alt=""/>
+  </div>
+  <div>
+    <h2>{{recipe.name}}</h2>
+    <div>
+      {{mapSource(recipe.source)}}<br>
+      Enthält: <i>{{availableIngredients}}</i> (Wertung: {{recipe.score | number}})
+    </div>
+  </div>
+</div>
+
+
