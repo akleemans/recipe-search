@@ -6,6 +6,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "lint": "ng lint",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadless",
     "start-e2e-backend": "cd .. && python3 app.py",
     "cypress:open": "cypress open",
