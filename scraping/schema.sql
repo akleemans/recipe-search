@@ -10,7 +10,6 @@ CREATE TABLE recipe
     keywords     TEXT,
     prep_time    TEXT,
     total_time   TEXT,
-    source       TEXT
---    created_at   TEXT,
---    rating       REAL
+    source       TEXT,
+    thumbnail    TEXT
 );

@@ -1,6 +1,6 @@
 <div class="recipe" (click)="openRecipe()">
   <div class="image-centered">
-    <img [src]="recipe.image" alt=""/>
+    <img [src]="'assets/' + recipe.thumbnail" alt=""/>
   </div>
   <div>
     <h2>{{recipe.name}}</h2>

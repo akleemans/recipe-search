@@ -16,4 +16,5 @@ export interface Recipe {
   total_time: string;
   keywords: string;
   score: number;
+  thumbnail: string;
 }

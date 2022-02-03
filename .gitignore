@@ -100,3 +100,6 @@ dmypy.json
 # Don't commit data
 *.db
 /app.log
+images-all/
+static/assets/images/
+scraping/sources/

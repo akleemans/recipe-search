@@ -7,6 +7,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadless",
+    "start-e2e-backend": "cd .. && python3 app.py",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:ci": "npm run start-e2e-backend & wait-on http://localhost:5000 && npm run serve & wait-on http://localhost:4200 && cypress run",
     "release:local": "npm run test:ci && npm run build && ./update_static.sh"
   },
   "private": true,
@@ -31,6 +35,7 @@
     "@angular/compiler-cli": "~13.2.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "cypress": "9.4.1",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
