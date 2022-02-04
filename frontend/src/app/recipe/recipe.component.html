@@ -1,12 +1,12 @@
 <div class="recipe" (click)="openRecipe()">
   <div class="image-centered">
-    <img [src]="'assets/' + recipe.thumbnail" alt=""/>
+    <img [src]="'assets/images/' + recipe.thumbnail" alt=""/>
   </div>
   <div>
     <h2>{{recipe.name}}</h2>
     <div>
       {{mapSource(recipe.source)}}<br>
-      Enthält: <i>{{availableIngredients}}</i> (Wertung: {{recipe.score | number}})
+      Enthält: <i>{{availableIngredients}}</i>
     </div>
   </div>
 </div>
