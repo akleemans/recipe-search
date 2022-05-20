@@ -2,6 +2,10 @@
 
 Ingredient-based recipe search based on Angular, Python/Flask and SQLite.
 
+See it live here: [www.rezept-ideen.ch](https://www.rezept-ideen.ch/)
+
+![](https://github.com/akleemans/recipe-search/blob/main/recipe-search.png)
+
 ## Run
 
 Install dependencies:
