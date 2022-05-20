@@ -8,8 +8,3 @@
 * [Betty Bossy](https://www.bettybossi.ch/de/Rezept/List): 8'000 curated recipes
 * [Alnatura](https://www.alnatura.ch/de/kochen/rezeptefilter.html): 700 curated recipies
 * [Migusto](https://migusto.migros.ch/de/rezept-uebersicht.html): 6'600 curated recipes
-
-Not now:
-
-* [GuteKüche.ch](https://www.gutekueche.ch/rezeptsuche?s=&order_by=name&p=1): 17'000 curated (?) recipes
-* [Le Menu](https://rezepte.lemenu.ch/), 2'600 curated recipes (paid subscription needed)
