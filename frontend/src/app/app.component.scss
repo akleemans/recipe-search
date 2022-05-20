@@ -7,6 +7,7 @@ header {
 
 .container {
   margin: 20px;
+
   .search-box {
     display: flex;
     flex-direction: column;
@@ -16,6 +17,8 @@ header {
       display: flex;
       flex-direction: row;
       align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
 
       > .mat-form-field, > .button {
         margin-right: 20px;
@@ -31,7 +34,8 @@ header {
 }
 
 .chip-list {
-  width: 600px;
+  max-width: 600px;
+  min-width: 300px;
   padding: 0;
 }
 
@@ -44,4 +48,17 @@ header {
 
 .example-radio-button {
   margin: 5px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  app-recipe {
+    width: 95%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .chip-list {
+    width: 600px;
+  }
 }
